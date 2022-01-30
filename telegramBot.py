@@ -59,7 +59,8 @@ def getMessages(groupLinks, lastMessage, token):
                 count += 1
             elif count != 0:
                 msg = k.find("div").find("div", class_="tgme_widget_message_bubble").find("div", class_="tgme_widget_message_text js-message_text").getText()
-                sendMessagesList.append(msg)
+                if "#" in msg:
+                    sendMessagesList.append(msg)
                 lastMessage[j] = msg
 
     for message in sendMessagesList:
